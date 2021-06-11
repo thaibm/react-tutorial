@@ -2,6 +2,28 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Working Process
+
+1. Create new branch from master
+
+```
+git checkout -b your-full-name
+```
+
+2. Push your branch to remote
+
+```
+git push origin your-full-name
+```
+
+3. Create new branch depend on your working feature
+
+```
+git checkout -b feature/your-feature
+```
+
+4. Commit your change, after that push your working feature to remote. Finally Create Pull Request to merge `your-feature` branch into `your-full-name` branch.
+
 ## Available Scripts
 
 In the project directory, you can run:
