@@ -1,4 +1,5 @@
-# TODO app requirement
+# TODO App 
+## Requirement
 
 1. Create a powerful Todo app with React and Typescript
 
@@ -12,11 +13,11 @@
 4. Use Redux basic (Without Redux toolkit to understand the main idea of Redux)
 
 
-# [NCC React basic checklist](https://nccasia.github.io/ncc-react-basic/)
+## [NCC React basic checklist](https://nccasia.github.io/ncc-react-basic/)
 
 https://nccasia.github.io/ncc-react-basic/
 
-# [How to Write Cleaner React Code](https://www.freecodecamp.org/news/how-to-write-cleaner-react-code/)
+## [How to Write Cleaner React Code](https://www.freecodecamp.org/news/how-to-write-cleaner-react-code/)
 
 https://www.freecodecamp.org/news/how-to-write-cleaner-react-code/
 
