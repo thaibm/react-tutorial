@@ -1,7 +1,7 @@
 # Project Rule
 
 1. Daily report on Komu before 10am
-2. Create Pull Request for merging. DON'T push into `master` branch and `time-sheet` directly.
+2. Create Pull Request for merging. DON'T push into `master` branch and `timesheet-tutorial` directly.
 
 # TODO App 
 ## Requirement
