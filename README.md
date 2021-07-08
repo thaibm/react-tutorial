@@ -15,8 +15,9 @@
 
 2. Should has great UI
 3. Integrate with BE (Can reuse [Placeholder](https://jsonplaceholder.typicode.com/) or create your own BE by using [mockend](https://mockend.com/))
-4. Use Redux basic (Without Redux toolkit to understand the main idea of Redux)
-
+4. Recommend Library 
+- Redux basic (Without Redux toolkit to understand the main idea of Redux)
+- Axios (Create axios instance)
 
 ## [NCC React basic checklist](https://nccasia.github.io/ncc-react-basic/)
 
