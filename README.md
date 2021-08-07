@@ -26,8 +26,6 @@ https://www.freecodecamp.org/news/how-to-write-cleaner-react-code/
 
 [View details](https://ops.nccsoft.vn/DefaultCollection/ncc-front-end-training/_wiki/wikis/ncc-front-end-training.wiki/448/About)
 
-4. Commit your change, after that push your working feature to remote. Finally Create Pull Request to merge `your-feature` branch into `your-full-name` branch.
-
 ## Available Scripts
 
 In the project directory, you can run:
