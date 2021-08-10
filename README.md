@@ -6,6 +6,11 @@
 - Todo list with CRUD functions
 - Filter by status: All/Completed/Active
 - Counter for each status. All: `3 active items / 10 items`; Completed: `7 completed items / 10 items`, Active: `3 active items / 10 items`.
+- Style by yourself, *do not* use external UI lib like Material-UI, AntDesign...
+    + Use SCSS and CSS Module
+    + Can follow a design in the internet
+    + Have to follow the principle in some example UI design theme. (Ex: https://element.eleme.io/#/en-US/theme/preview)
+
 - Bonus (Optional): Add timing for each Items. Notify when it nearly the deadline (before deadline 1h)
 
 2. Should has great UI
