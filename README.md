@@ -14,8 +14,11 @@
 - Bonus (Optional): Add timing for each Items. Notify when it nearly the deadline (before deadline 1h)
 
 2. Should has great UI
+
 3. Integrate with BE (Can reuse [Placeholder](https://jsonplaceholder.typicode.com/) or create your own BE by using [mockend](https://mockend.com/))
+
 4. Recommend Library 
+
 - Redux basic (Without Redux toolkit to understand the main idea of Redux)
 - Axios (Create axios instance)
 
