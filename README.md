@@ -19,7 +19,7 @@
 
 4. Recommend Library 
 
-- Redux basic (Without Redux toolkit to understand the main idea of Redux)
+- [Redux basic](https://redux.js.org/tutorials/fundamentals/part-1-overview) (Without Redux toolkit to understand the main idea of Redux)
 - Axios (Create axios instance)
 
 ## [NCC React basic checklist](https://nccasia.github.io/ncc-react-basic/)
