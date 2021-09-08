@@ -33,14 +33,16 @@
     }
 
     &.btn__active {
-        background-color: $primary-color;
-        border-bottom   : none;
-        color           : $white-color;
+        background-color: azure;
+        border-bottom   : 3px solid $dangers-color;
+        color           : $dangers-color;
         font-weight     : bold;
         font-size       : 18px;
+
+        &:hover {
+            background-color: $btn-nomal-hover;
+        }
     }
 
-    &.btn__active:hover {
-        background-color: $primary-color-hover;
-    }
+
 }

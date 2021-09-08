@@ -74,7 +74,7 @@ const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
             <div className="todo-form__header">
                 <h2>{title}</h2>
             </div>
-            <form className="form__input" onSubmit={onSubmit}>
+            <form className="todo-form__body" onSubmit={onSubmit}>
                 <input
                     type="text"
                     placeholder="Todo Name ..."

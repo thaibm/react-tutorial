@@ -22,16 +22,20 @@
         margin-bottom: 5px;
     }
 
-    .form__input {
+    &__body {
         padding: 0 0.75rem;
+
+        .form__control {
+            display        : flex;
+            justify-content: flex-end;
+        }
     }
 }
 
-
-
 .todo-name {
-    width        : 90%;
-    height       : 36px;
+    width : 90%;
+    height: 36px;
+
     font-size    : 1rem;
     border       : 2px solid #dbdbdb;
     border-radius: 4px;
@@ -48,6 +52,7 @@
     margin-bottom: 20px;
     width        : 90%;
     height       : 36px;
+
     padding      : 0 12px;
     font-size    : 0.9rem;
     border       : 2px solid $boder-color;
@@ -60,10 +65,8 @@
     }
 }
 
-.form__control {
-    display        : flex;
-    justify-content: flex-end;
-}
+
+
 
 .btn {
     min-width       : 80px;

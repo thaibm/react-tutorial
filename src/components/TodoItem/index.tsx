@@ -44,6 +44,7 @@ export const TodoItem: React.FC<Props> = ({ todoItem }) => {
     };
 
     return (
+
         <div className="todoItem">
             <input
                 type="checkbox"
@@ -51,22 +52,23 @@ export const TodoItem: React.FC<Props> = ({ todoItem }) => {
                 onChange={handleChangeComplete}
             />
             <div
-                className={classNames("todoItem__title", {
-                    todoItem__title_cpl: checked,
+                className={classNames("title", {
+                    title_cpl: checked,
                 })}>
-                <span className="todoItem__title-name" onClick={handleChangeComplete}>
+                <span className="title-name" onClick={handleChangeComplete}>
                     {todoItem.title}
-                </span>
-                {todoItem.deadline && (
-                    <span
-                        className={classNames("todoItem__title-deadline", {
-                            todoItem__title_deadline_warring:
+                    {todoItem.deadline && (<span
+                        className={classNames("title-deadline", {
+                            warning:
                                 checkDeadline(todoItem) && !checked,
-                        })}
-                    >
+                        })}>
+                        <span>!expired</span>
+                    </span>)}
+                </span>
+                {todoItem.deadline &&
+                    <span className="deadline">
                         {moment(todoItem.deadline).format("h:mm a, DD/MM/YYYY")}
-                    </span>
-                )}
+                    </span>}
             </div>
 
             <FontAwesomeIcon
@@ -87,6 +89,9 @@ export const TodoItem: React.FC<Props> = ({ todoItem }) => {
                     setIsModalOpen={setIsModalOpen}
                 ></TodoForm>
             </Modal>
+
         </div>
+
+
     );
 };

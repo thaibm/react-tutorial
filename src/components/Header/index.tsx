@@ -12,7 +12,7 @@ const Header = () => {
     };
     return (
         <div className="header">
-            <h2 className="header-title">Todo App</h2>
+            <h2 className="header__title">Todo App</h2>
             <button className="btn btn-primary btn__add" onClick={handleClickAdd}>
                 <FontAwesomeIcon className="noti__icon" icon={["fas", "plus"]} />
                 <span className="text-add">{` New Todo`} </span>

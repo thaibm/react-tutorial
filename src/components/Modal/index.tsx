@@ -5,7 +5,7 @@ interface Props {
     isModalOpen: boolean;
     setIsModalOpen: (x: boolean) => void;
     children: React.ReactNode;
-  }
+}
 const Modal: React.FC<Props> = ({ isModalOpen, setIsModalOpen, children }) => {
     return (
         <div
