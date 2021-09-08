@@ -1,4 +1,28 @@
 {
-    "todos": [
-    ]
-  }
+  "todos": [
+    {
+      "title": "Đi Chợ",
+      "isCompleted": true,
+      "deadline": "2021-08-07T14:08",
+      "id": 2
+    },
+    {
+      "title": "Rửa bát",
+      "isCompleted": false,
+      "deadline": "2021-09-04T10:44",
+      "id": 11
+    },
+    {
+      "title": "Học Bài",
+      "isCompleted": false,
+      "deadline": "2021-09-08T21:35",
+      "id": 12
+    },
+    {
+      "title": "Đi chợ",
+      "deadline": "2021-09-11T17:29",
+      "id": 13,
+      "isCompleted": false
+    }
+  ]
+}

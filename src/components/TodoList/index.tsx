@@ -1,16 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from "react-redux";
+import { IStore, ITodo } from "../../store/types";
+import { TodoItem } from "../TodoItem";
+import "./TodoList.scss";
 
-TodoList.propTypes = {
-    
-};
+export default function TodoList() {
+    const todos = useSelector((state:IStore) => state.todoList);
 
-function TodoList() {
+    console.log(todos);
     return (
-        <div>
-            List Todo
+        <div className="todoList">
+            {todos.length === 0 ? (
+                <h2>Add todo now!!!</h2>
+            ) : (
+                todos.map((todo:ITodo) => {
+                    return <TodoItem key={todo.id} todoItem={todo} />;
+                })
+            )}
         </div>
     );
-}
-
-export default TodoList;
+};

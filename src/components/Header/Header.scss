@@ -1,0 +1,48 @@
+@import "../../assest/scss/variable.scss";
+
+.header {
+    display        : flex;
+    justify-content: space-between;
+}
+
+.header-title {
+    margin-top   : 0px;
+    margin-bottom: 0px;
+    padding      : 16px;
+    font-size    : 30px;
+}
+
+.addTodo {
+    position: absolute;
+    height  : 100px;
+    display : flex;
+    bottom  : 50px;
+    left    : 0;
+    right   : 0;
+}
+
+.btn__add {
+    height                    : 40px;
+    min-width                 : 40px;
+    width                     : 40px;
+    margin                    : 16px;
+    transition                : width 0.2s;
+    transition-timing-function: ease-out;
+
+    &:hover {
+        width: 100px;
+
+        .noti__icon {
+            margin-right: 4px;
+        }
+
+        .text-add {
+            visibility: visible;
+            display   : inline-block;
+        }
+    }
+}
+
+.text-add {
+    display: none;
+}

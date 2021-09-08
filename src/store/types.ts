@@ -4,3 +4,17 @@ export interface ITodo {
   isCompleted: boolean;
   deadline?: string;
 }
+
+export interface IStore {
+  todoList: ITodo[];
+  filter: IStatus;
+  todoListFilter: ITodo[];
+  success: string;
+  loading: string;
+}
+
+export enum IStatus {
+  all,
+  active,
+  complete,
+}
