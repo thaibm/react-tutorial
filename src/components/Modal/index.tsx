@@ -3,7 +3,7 @@ import classNames from "classnames";
 import "./Modal.scss";
 interface Props {
     isModalOpen: boolean;
-    setIsModalOpen: (x: boolean) => void;
+    setIsModalOpen: (isOpen: boolean) => void;
     children: React.ReactNode;
 }
 const Modal: React.FC<Props> = ({ isModalOpen, setIsModalOpen, children }) => {

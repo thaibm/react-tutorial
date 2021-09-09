@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import * as actionsAPI from "../service/api/api";
 import * as actions from "./actions";
 import { ITodo } from "./types";

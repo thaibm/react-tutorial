@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodoThunk, updateTodoThunk } from "../../store/thunks";
@@ -5,25 +6,25 @@ import { IStore, ITodo } from "../../store/types";
 import "./TodoForm.scss";
 interface Props {
     title: string;
-    setIsModalOpen: (x: boolean) => void;
+    setIsModalOpen: (isOpen: boolean) => void;
     todoItem?: ITodo;
 }
 
 const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
     const todoList = useSelector((state: IStore) => state.todoList);
     const [value, setValue] = useState("");
-    const [deadline, setDeadline] = useState<string | undefined>("");
+    const [deadline, setDeadline] = useState<undefined | string>("");
     const dispatch = useDispatch();
-
     useEffect(() => {
         if (todoItem !== undefined) {
             setValue(todoItem.title);
-            setDeadline(todoItem.deadline);
+            setDeadline(todoItem.deadline?.toString());
+
         }
+
     }, [todoItem]);
 
-    const handleChangeDeadline = (value: any) => {
-        console.log(typeof value);
+    const handleChangeDeadline = (value: string) => {
         setDeadline(value);
     };
 
@@ -38,7 +39,7 @@ const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
             dispatch(
                 updateTodoThunk({
                     title: value,
-                    deadline: deadline,
+                    deadline: moment(deadline).toDate(),
                     id: todoItem.id,
                     isCompleted: false,
                 })
@@ -47,7 +48,7 @@ const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
             dispatch(
                 addTodoThunk({
                     title: value,
-                    deadline: deadline,
+                    deadline: moment(deadline).toDate(),
                     id: todoList.length === 0 ? 1 : todoList[0].id + 1,
                     isCompleted: false,
                 })
@@ -65,10 +66,11 @@ const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
             setValue("");
         } else {
             setValue(todoItem.title);
-            setDeadline(todoItem.deadline);
+            setDeadline(todoItem.deadline?.toString);
         }
         setIsModalOpen(false);
     };
+    
     return (
         <div className="todo-form">
             <div className="todo-form__header">
@@ -97,7 +99,6 @@ const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
                         value="Cancel"
                         onClick={handleCancle}
                     />
-
                     <input type="submit" className="btn btn-primary" value="Save" />
                 </div>
             </form>

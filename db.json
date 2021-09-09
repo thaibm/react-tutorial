@@ -8,13 +8,13 @@
     },
     {
       "title": "Rửa bát",
-      "isCompleted": false,
+      "isCompleted": true,
       "deadline": "2021-09-04T10:44",
       "id": 11
     },
     {
       "title": "Học Bài",
-      "isCompleted": false,
+      "isCompleted": true,
       "deadline": "2021-09-08T18:35",
       "id": 12
     },
@@ -27,8 +27,14 @@
     {
       "title": "Cho mèo ăn",
       "isCompleted": false,
-      "deadline": "",
+      "deadline": "2021-09-16T10:12:00.000Z",
       "id": 14
+    },
+    {
+      "title": "szxczx",
+      "deadline": "2021-09-01T10:32:00.000Z",
+      "id": 15,
+      "isCompleted": false
     }
   ]
 }

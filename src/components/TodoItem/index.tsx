@@ -22,7 +22,6 @@ export const TodoItem: React.FC<Props> = ({ todoItem }) => {
             const now = new Date();
             const deadline = new Date(todoItem?.deadline);
             const a = deadline.getTime() - now.getTime();
-            // console.log(deadline);
             return a < 60 * 60 * 1000;
         }
         return false;

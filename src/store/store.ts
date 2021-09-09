@@ -41,19 +41,19 @@ const setFilter = (todoList: ITodo[], filter: IStatus): ITodo[] => {
   if (filter === IStatus.all) {
     return newList;
   } else if (filter === IStatus.active) {
-    return newList.filter((todo) => todo.isCompleted === false);
+    return newList.filter((todo) => !todo.isCompleted);
   } else {
-    return newList.filter((todo) => todo.isCompleted === true);
+    return newList.filter((todo) => todo.isCompleted);
   }
 };
 
-  const initState: IStore = {
-    todoList: [],
-    filter: IStatus.all,
-    todoListFilter: [],
-    success: "",
-    loading: "loadding",
-  };
+const initState: IStore = {
+  todoList: [],
+  filter: IStatus.all,
+  todoListFilter: [],
+  success: "",
+  loading: "loadding",
+};
 
 const todoReducer = (state = initState, action: ActionTypes) => {
   switch (action.type) {
