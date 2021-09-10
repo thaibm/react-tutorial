@@ -20,8 +20,8 @@ export const TodoItem: React.FC<Props> = ({ todoItem, onDeleteClick, onCompleteC
         if (todoItem.deadline) {
             const now = new Date();
             const deadline = new Date(todoItem?.deadline);
-            const a = deadline.getTime() - now.getTime();
-            return a < 60 * 60 * 1000;
+            const timeChecking = deadline.getTime() - now.getTime();
+            return timeChecking < 60 * 60 * 1000;
         }
         return false;
     };

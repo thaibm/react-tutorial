@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import Modal from "../Modal";
 import TodoForm from "../TodoForm";
-
 import "./Header.scss";
+
 const Header = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const handleClickAdd = () => {

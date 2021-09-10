@@ -3,7 +3,7 @@
 .todoList {
     overflow-y   : scroll;
     height       : 500px;
-    padding      : 0 10px;
+    padding      : 0 20px;
     transition   : all 0.9s ease;
     margin-bottom: 20px;
 
@@ -28,6 +28,25 @@
     h2 {
         text-align: center;
     }
+
+    .sort {
+        display        : flex;
+        justify-content: flex-end;
+
+        .btn-sort {
+            background-color: $white-color;
+            border-radius   : 4px;
+            border          : none;
+            color           : black;
+            font-family     : 'Poppins';
+            padding         : 5px 8px;
+
+            &:hover {
+                background-color: $background-color-tag-hover;
+            }
+        }
+    }
+
 }
 
 @media (max-width: 768px) {

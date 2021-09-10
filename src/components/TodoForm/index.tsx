@@ -13,13 +13,12 @@ interface Props {
 const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
     const todoList = useSelector((state: IStore) => state.todoList);
     const [value, setValue] = useState("");
-    const [deadline, setDeadline] = useState<undefined | string>("");
+    const [deadline, setDeadline] = useState<string | undefined>("");
     const dispatch = useDispatch();
     useEffect(() => {
         if (todoItem !== undefined) {
             setValue(todoItem.title);
             setDeadline(todoItem.deadline?.toString());
-
         }
 
     }, [todoItem]);
