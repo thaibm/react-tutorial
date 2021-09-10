@@ -14,15 +14,9 @@
     },
     {
       "title": "Học Bài",
-      "isCompleted": true,
+      "isCompleted": false,
       "deadline": "2021-09-08T18:35",
       "id": 12
-    },
-    {
-      "title": "Đi chợ",
-      "isCompleted": false,
-      "deadline": "2021-09-11T17:29",
-      "id": 13
     },
     {
       "title": "Cho mèo ăn",
@@ -31,8 +25,8 @@
       "id": 14
     },
     {
-      "title": "szxczx",
-      "deadline": "2021-09-01T10:32:00.000Z",
+      "title": "an com",
+      "deadline": null,
       "id": 15,
       "isCompleted": false
     }

@@ -39,7 +39,7 @@ const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
             dispatch(
                 updateTodoThunk({
                     title: value,
-                    deadline: moment(deadline).toDate(),
+                    deadline: deadline ? moment(deadline).toDate() : undefined,
                     id: todoItem.id,
                     isCompleted: false,
                 })
@@ -48,7 +48,7 @@ const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
             dispatch(
                 addTodoThunk({
                     title: value,
-                    deadline: moment(deadline).toDate(),
+                    deadline: deadline ? moment(deadline).toDate() : undefined,
                     id: todoList.length === 0 ? 1 : todoList[0].id + 1,
                     isCompleted: false,
                 })
@@ -70,7 +70,7 @@ const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
         }
         setIsModalOpen(false);
     };
-    
+
     return (
         <div className="todo-form">
             <div className="todo-form__header">

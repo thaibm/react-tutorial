@@ -3,19 +3,19 @@
 .header {
     display        : flex;
     justify-content: space-between;
+    padding        : 20px;
 
     &__title {
         margin-top   : 0px;
         margin-bottom: 0px;
-        padding      : 16px;
         font-size    : 30px;
+        color: $white-color;
     }
 
     .btn__add {
         height   : 40px;
         min-width: 40px;
         width    : 100px;
-        margin   : 16px;
 
         .noti__icon {
             margin-right: 4px;

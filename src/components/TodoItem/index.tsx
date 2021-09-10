@@ -2,8 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
 import moment from "moment";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { deleteTodoThunk, toggleTodoThunk } from "../../store/thunks";
 import { ITodo } from "../../store/types";
 import "../FontAweSome";
 import Modal from "../Modal";
@@ -11,10 +9,11 @@ import TodoForm from "../TodoForm";
 import "./TodoItem.scss";
 interface Props {
     todoItem: ITodo;
+    onDeleteClick: (todoItem: ITodo) => void;
+    onCompleteClick: (todoItem: ITodo) => void;
 }
-export const TodoItem: React.FC<Props> = ({ todoItem }) => {
+export const TodoItem: React.FC<Props> = ({ todoItem, onDeleteClick, onCompleteClick }) => {
     const [checked, setChecked] = useState(todoItem.isCompleted);
-    const dispatch = useDispatch();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const checkDeadline = (todoItem: ITodo) => {
@@ -26,22 +25,16 @@ export const TodoItem: React.FC<Props> = ({ todoItem }) => {
         }
         return false;
     };
-
-    const handleChangeComplete = () => {
-        const newTodo = { ...todoItem };
-        newTodo.isCompleted = !newTodo.isCompleted;
-        dispatch(toggleTodoThunk(newTodo));
-        setChecked(newTodo.isCompleted);
-    };
-
     const handleClickUpdate = () => {
         setIsModalOpen(true);
     };
-
-    const handleClickDelete = () => {
-        dispatch(deleteTodoThunk(todoItem.id));
-    };
-
+    const handleChangeComplete = () => {
+        onCompleteClick(todoItem);
+        setChecked(!checked);
+    }
+    const handleDeleteClick = () => {
+        onDeleteClick(todoItem);
+    }
     return (
 
         <div className="todoItem">
@@ -78,7 +71,7 @@ export const TodoItem: React.FC<Props> = ({ todoItem }) => {
             <FontAwesomeIcon
                 className="icon todoItem__icon-del"
                 icon={["far", "trash-alt"]}
-                onClick={handleClickDelete}
+                onClick={handleDeleteClick}
             />
 
             <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>

@@ -8,18 +8,18 @@
 }
 
 .todo {
-  background-color: azure;
-  background      : linear-gradient(270deg, #eaecc6, #f9c32a);
-  width           : 500px;
-  height          : 700px;
-  border-radius   : 4px;
-  margin          : 0px auto;
-  overflow        : hidden;
-  position        : relative;
-  box-shadow      : 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  background   : rgb(251, 116, 49);
+  background   : radial-gradient(circle, rgba(251, 116, 49, 1) 0%, rgba(254, 242, 163, 1) 60%, rgba(255, 158, 0, 1) 100%);
+  width        : 500px;
+  height       : 700px;
+  border-radius: 4px;
+  margin       : 0px auto;
+  overflow     : hidden;
+  position     : relative;
+  box-shadow   : 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .App {
     padding-top: 0;
   }
