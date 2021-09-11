@@ -1,17 +1,17 @@
 @import "assest/scss/variable.scss";
 
 .App {
-  background : #2bc0e4;
-  background : -webkit-gradient(linear, right top, left top, from(#eaecc6), to(#2bc0e4));
-  background : linear-gradient(270deg, #eaecc6, #2bc0e4);
+  background: #8E0E00;
+  background: -webkit-linear-gradient(to right, #1F1C18, #8E0E00);
+  background: linear-gradient(to right, #1F1C18, #8E0E00);
   height     : 100vh;
   box-sizing : border-box;
   padding-top: 32px;
 }
 
 .todo {
-  background   : rgb(251, 116, 49);
-  background   : radial-gradient(circle, rgba(251, 116, 49, 1) 0%, rgba(254, 242, 163, 1) 60%, rgba(255, 158, 0, 1) 100%);
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
   width        : 500px;
   height       : 700px;
   border-radius: 4px;

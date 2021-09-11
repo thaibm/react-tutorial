@@ -6,6 +6,7 @@ import "./Header.scss";
 interface Props {
     handleClickAddEdit: (title: string, todoItem?: ITodo) => void;
 }
+
 const Header: React.FC<Props> = ({ handleClickAddEdit }) => {
     const title = "Add Todo"
     return (

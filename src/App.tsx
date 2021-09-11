@@ -112,6 +112,7 @@ function App() {
           <TodoForm
             todoItem={currentItem}
             title={titleForm}
+            setCurrentItem={setCurrentItem}
             setIsModalOpen={setIsModalOpen}
             handleConfirmAddEdit={handleConfirmAddEdit}
           ></TodoForm>

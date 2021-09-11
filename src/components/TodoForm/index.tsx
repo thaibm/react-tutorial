@@ -7,12 +7,13 @@ interface Props {
     setIsModalOpen: (isOpen: boolean) => void;
     todoItem?: ITodo;
     handleConfirmAddEdit: Function
+    setCurrentItem: Function
 }
 
-const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem, handleConfirmAddEdit }) => {
+const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem, handleConfirmAddEdit, setCurrentItem }) => {
     const [value, setValue] = useState("");
     const [deadline, setDeadline] = useState<string | undefined>("");
-
+    
     useEffect(() => {
         if (todoItem !== undefined) {
             setValue(todoItem.title);
@@ -35,8 +36,9 @@ const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem, handleConf
     };
 
     const handleCancle = () => {
-        setDeadline("");
+        setCurrentItem(undefined);
         setValue("");
+        setDeadline("");
         setIsModalOpen(false);
     };
 

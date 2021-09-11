@@ -29,12 +29,11 @@ const TodoList: React.FC<Props> = (props) => {
 
     const handleSort = () => {
         const temp = [...todoList];
-        const todoSorted = temp.sort((x: ITodo, y: ITodo) => {
-            const a = x.deadline;
-            const b = y.deadline;
+        const todoSorted = temp.sort((todo1: ITodo, todo2: ITodo) => {
+            const a = todo1.deadline;
+            const b = todo2.deadline;
             return 0 - (moment(a).toDate() > moment(b).toDate() ? -1 : 1)
         });
-        console.log(todoSorted);
         setTodoList(todoSorted);
         setIsSort(!isSort);
     }
