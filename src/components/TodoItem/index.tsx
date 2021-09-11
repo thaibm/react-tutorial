@@ -4,18 +4,15 @@ import moment from "moment";
 import React, { useState } from "react";
 import { ITodo } from "../../store/types";
 import "../FontAweSome";
-import Modal from "../Modal";
-import TodoForm from "../TodoForm";
 import "./TodoItem.scss";
 interface Props {
     todoItem: ITodo;
-    onDeleteClick: (todoItem: ITodo) => void;
+    handleClickDelete: (todoItem: ITodo) => void;
     onCompleteClick: (todoItem: ITodo) => void;
+    handleClickAddEdit: (title: string, todoItem?: ITodo) => void;
 }
-export const TodoItem: React.FC<Props> = ({ todoItem, onDeleteClick, onCompleteClick }) => {
+export const TodoItem: React.FC<Props> = ({ todoItem, handleClickDelete, onCompleteClick, handleClickAddEdit }) => {
     const [checked, setChecked] = useState(todoItem.isCompleted);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
     const checkDeadline = (todoItem: ITodo) => {
         if (todoItem.deadline) {
             const now = new Date();
@@ -25,29 +22,29 @@ export const TodoItem: React.FC<Props> = ({ todoItem, onDeleteClick, onCompleteC
         }
         return false;
     };
-    const handleClickUpdate = () => {
-        setIsModalOpen(true);
-    };
-    const handleChangeComplete = () => {
+
+    const handleChangeStatus = () => {
         onCompleteClick(todoItem);
         setChecked(!checked);
     }
     const handleDeleteClick = () => {
-        onDeleteClick(todoItem);
+        handleClickDelete(todoItem);
     }
+
+    const title = "Edit Todo";
     return (
 
         <div className="todoItem">
             <input
                 type="checkbox"
                 checked={checked}
-                onChange={handleChangeComplete}
+                onChange={handleChangeStatus}
             />
             <div
                 className={classNames("title", {
                     title_cpl: checked,
                 })}>
-                <span className="title-name" onClick={handleChangeComplete}>
+                <span className="title-name" onClick={handleChangeStatus}>
                     {todoItem.title}
                     {todoItem.deadline && (<span
                         className={classNames("title-deadline", {
@@ -66,24 +63,13 @@ export const TodoItem: React.FC<Props> = ({ todoItem, onDeleteClick, onCompleteC
             <FontAwesomeIcon
                 className="icon todoItem__icon-edit"
                 icon={["far", "edit"]}
-                onClick={handleClickUpdate}
+                onClick={() => handleClickAddEdit(title, todoItem)}
             />
             <FontAwesomeIcon
                 className="icon todoItem__icon-del"
                 icon={["far", "trash-alt"]}
                 onClick={handleDeleteClick}
             />
-
-            <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-                <TodoForm
-                    todoItem={todoItem}
-                    title="Edit Todo"
-                    setIsModalOpen={setIsModalOpen}
-                ></TodoForm>
-            </Modal>
-
         </div>
-
-
     );
 };

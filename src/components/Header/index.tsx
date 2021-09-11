@@ -1,29 +1,20 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import Modal from "../Modal";
-import TodoForm from "../TodoForm";
+import React from "react";
+import { ITodo } from "../../store/types";
 import "./Header.scss";
-
-const Header = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const handleClickAdd = () => {
-        setIsModalOpen(true);
-    };
+interface Props {
+    handleClickAddEdit: (title: string, todoItem?: ITodo) => void;
+}
+const Header: React.FC<Props> = ({ handleClickAddEdit }) => {
+    const title = "Add Todo"
     return (
         <div className="header">
             <h2 className="header__title">Todo App</h2>
-            <button className="btn btn-primary btn__add" onClick={handleClickAdd}>
+            <button className="btn btn-primary btn__add" onClick={() => handleClickAddEdit(title)}>
                 <FontAwesomeIcon className="noti__icon" icon={["fas", "plus"]} />
                 <span className="text-add">{` New Todo`} </span>
             </button>
-
-            <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
-                <TodoForm
-                    title="New Todo"
-                    setIsModalOpen={setIsModalOpen}
-                ></TodoForm>
-            </Modal>
         </div>
     );
 };

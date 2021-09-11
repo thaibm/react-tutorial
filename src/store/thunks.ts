@@ -5,7 +5,6 @@ import { ITodo } from "./types";
 export const getTodosThunk = () => async (dispatch: Function) => {
   try {
     const response = await actionsAPI.getTodosAPI();
-    console.log(response.data);
     dispatch(actions.getTodos(response.data));
   } catch (error) {
     console.error(error);

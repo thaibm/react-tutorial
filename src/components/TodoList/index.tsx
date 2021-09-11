@@ -7,12 +7,21 @@ import "../FontAweSome";
 import "./TodoList.scss";
 interface Props {
     todos: ITodo[];
-    onTodoDeleteClick: (todoItem: ITodo) => void;
+    handleClickDelete: (todoItem: ITodo) => void;
     onTodoCompleteClick: (todoItem: ITodo) => void;
+    setCurrentItem: (todo: ITodo) => void;
+    handleClickAddEdit: (title: string, todoItem?: ITodo) => void;
 }
 const TodoList: React.FC<Props> = (props) => {
-    const { todos, onTodoDeleteClick, onTodoCompleteClick } = props;
+    const { todos, handleClickDelete, onTodoCompleteClick, handleClickAddEdit } = props;
     const [todoList, setTodoList] = useState(todos);
+    const [isSort, setIsSort] = useState(false);
+
+    useEffect(() => {
+        if (!isSort) {
+            setTodoList(todos);
+        }
+    }, [isSort, todos]);
 
     useEffect(() => {
         setTodoList(todos);
@@ -27,28 +36,35 @@ const TodoList: React.FC<Props> = (props) => {
         });
         console.log(todoSorted);
         setTodoList(todoSorted);
+        setIsSort(!isSort);
     }
     return (
-        <div className="todoList">
+        <>
             <div className="sort">
-                <button className="btn-sort" onClick={handleSort}> date <FontAwesomeIcon className="noti__icon" icon={["fas", "chevron-down"]} /></button>
-                {/* <button className="btn-sort" onClick={() => setTodoList(todos)}><FontAwesomeIcon className="noti__icon" icon={["fas", "chevron-up"]} /></button> */}
+                <button className="btn-sort" onClick={handleSort}>{isSort ?
+                    <span>Refresh</span>
+                    :
+                    <span>date <FontAwesomeIcon className="noti__icon" icon={["fas", "chevron-down"]} /></span>
+                } </button>
+
             </div>
+            <div className="todoList">
+                {todoList.length === 0 ? (
+                    <h2>Add todo now!!!</h2>
+                ) : (
+                    todoList.map((todo: ITodo) => {
+                        return <TodoItem
+                            handleClickAddEdit={handleClickAddEdit}
+                            key={todo.id}
+                            todoItem={todo}
+                            handleClickDelete={handleClickDelete}
+                            onCompleteClick={onTodoCompleteClick}
+                        />;
+                    })
+                )}
 
-            {todoList.length === 0 ? (
-                <h2>Add todo now!!!</h2>
-            ) : (
-                todoList.map((todo: ITodo) => {
-                    return <TodoItem
-                        key={todo.id}
-                        todoItem={todo}
-                        onDeleteClick={onTodoDeleteClick}
-                        onCompleteClick={onTodoCompleteClick}
-                    />;
-                })
-            )}
-
-        </div>
+            </div>
+        </>
     );
 };
 

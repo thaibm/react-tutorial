@@ -1,72 +1,42 @@
 import moment from "moment";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addTodoThunk, updateTodoThunk } from "../../store/thunks";
-import { IStore, ITodo } from "../../store/types";
+import { ITodo } from "../../store/types";
 import "./TodoForm.scss";
 interface Props {
     title: string;
     setIsModalOpen: (isOpen: boolean) => void;
     todoItem?: ITodo;
+    handleConfirmAddEdit: Function
 }
 
-const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem }) => {
-    const todoList = useSelector((state: IStore) => state.todoList);
+const TodoForm: React.FC<Props> = ({ setIsModalOpen, title, todoItem, handleConfirmAddEdit }) => {
     const [value, setValue] = useState("");
     const [deadline, setDeadline] = useState<string | undefined>("");
-    const dispatch = useDispatch();
+
     useEffect(() => {
         if (todoItem !== undefined) {
             setValue(todoItem.title);
-            setDeadline(todoItem.deadline?.toString());
+            setDeadline(moment(todoItem.deadline).format("YYYY-MM-DDTHH:mm").toString());
         }
 
     }, [todoItem]);
 
     const handleChangeDeadline = (value: string) => {
-        setDeadline(value);
+        if (value) { setDeadline(value); }
     };
 
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         e.stopPropagation();
-        handleClickSave();
-    };
-
-    const handleClickSave = () => {
-        if (todoItem !== undefined) {
-            dispatch(
-                updateTodoThunk({
-                    title: value,
-                    deadline: deadline ? moment(deadline).toDate() : undefined,
-                    id: todoItem.id,
-                    isCompleted: false,
-                })
-            );
-        } else {
-            dispatch(
-                addTodoThunk({
-                    title: value,
-                    deadline: deadline ? moment(deadline).toDate() : undefined,
-                    id: todoList.length === 0 ? 1 : todoList[0].id + 1,
-                    isCompleted: false,
-                })
-            );
-        }
-
+        handleConfirmAddEdit(value, deadline);
         setDeadline("");
         setValue("");
         setIsModalOpen(false);
     };
 
     const handleCancle = () => {
-        if (todoItem === undefined) {
-            setDeadline("");
-            setValue("");
-        } else {
-            setValue(todoItem.title);
-            setDeadline(todoItem.deadline?.toString);
-        }
+        setDeadline("");
+        setValue("");
         setIsModalOpen(false);
     };
 
