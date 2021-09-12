@@ -1,0 +1,45 @@
+$black                     : black;
+$btn-nomal-hover           : rgba(0, 0, 0, 0.25);
+$text-color                : #303133;
+$btn-edit                  :grey;
+$info-color                : #909399;
+$background-color-tag-hover: #c0c4cca1;
+$boder-color               : #dbdbdb;
+$white-color               : #fff;
+$background-color-base     : #f5f7fa;
+
+
+$background-color-tag : rgb(5, 120, 197);
+$primary-color        : rgb(5, 120, 197);
+$primary-color-hover  : rgba(53, 118, 161, 0.9);
+
+$dangers-color       : #dd2f31;
+$dangers-color-hover : rgba(243, 84, 84, 0.9);
+
+$warning-color       : rgb(230, 162, 60);
+$warning-color-hover : rgba(230, 162, 60, 0.9);
+
+$success-color : rgb(103, 194, 58);
+$success-color : rgba(103, 194, 58, 0.961);
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+
+    to {
+        transform: scale(var(--growth-to));
+    }
+}

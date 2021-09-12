@@ -1,38 +1,55 @@
+@import "assest/scss/variable.scss";
+
 .App {
-  text-align: center;
+  background: #8E0E00;
+  background: -webkit-linear-gradient(to right, #1F1C18, #8E0E00);
+  background: linear-gradient(to right, #1F1C18, #8E0E00);
+  height     : 100vh;
+  box-sizing : border-box;
+  padding-top: 32px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.todo {
+  background-color: #4158D0;
+  background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  width        : 500px;
+  height       : 700px;
+  border-radius: 4px;
+  margin       : 0px auto;
+  overflow     : hidden;
+  position     : relative;
+  box-shadow   : 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.modal-confirm {
+  width           : 150px;
+  text-align      : center;
+  background-color: #fff;
+  padding         : 15px 0;
+
+  p {
+    margin-top: 0;
+  }
+
+  .btn-confirm {
+    background-color: $dangers-color;
+
+    &:hover {
+      background-color: $dangers-color-hover;
+    }
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 768px) {
+  .App {
+    padding-top: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .todo {
+    height        : 100vh;
+    width         : 100vw;
+    padding-bottom: 0;
   }
 }

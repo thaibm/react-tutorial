@@ -1,0 +1,36 @@
+@import "../../assest/scss/variable.scss";
+
+.filter {
+    display: flex;
+    padding: 0px 20px 10px;
+}
+
+.btn-filter {
+    min-width       : 80px;
+    height          : 40px;
+    border          : none;
+    text-decoration : none;
+    cursor          : pointer;
+    margin          : 0;
+    flex            : 1;
+    border-bottom   : 1px solid $info_color;
+    background-color: transparent;
+    font-family     : 'Poppins';
+    font-size       : 16px;
+
+    &:hover {
+        background-color: $btn-nomal-hover;
+    }
+
+    &.btn__active {
+        background-color: $white-color;
+        border-bottom   : 3px solid $dangers-color;
+        color           : $dangers-color;
+        font-weight     : bold;
+        font-size       : 18px;
+
+        &:hover {
+            background-color: $btn-nomal-hover;
+        }
+    }
+}

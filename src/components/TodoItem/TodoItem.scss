@@ -1,0 +1,135 @@
+@import "../../assest/scss/variable.scss";
+
+.todoItem {
+    margin          : 10px 0;
+    padding         : 10px;
+    position        : relative;
+    min-height      : 50px;
+    display         : flex;
+    align-items     : center;
+    background-color: $white-color;
+    overflow        : hidden;
+    animation       : fadeIn linear 0.2s;
+    border          : 1px solid $btn-nomal-hover;
+    border-radius   : 4px;
+
+    input[type=checkbox] {
+        $input: 30px;
+        width : $input;
+        height: $input;
+        cursor: pointer;
+    }
+
+    &:hover {
+        background-color: $background-color-tag-hover;
+
+        & .title-name {
+            -webkit-line-clamp: 10000;
+            --growth-from     : 0.7;
+            --growth-to       : 1;
+            animation         : all linear 0.2s;
+
+            padding      : 4px 0;
+            padding-right: 100px;
+        }
+
+        & .todoItem__icon-edit {
+            display: block;
+        }
+
+        & .todoItem__icon-del {
+            display: block;
+        }
+    }
+}
+
+.title {
+    flex       : 1;
+    text-align : left;
+    margin     : auto 10px auto 5px;
+    color      : $black;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.title-name {
+    display           : inline-block;
+    font-size         : 18px;
+    cursor            : pointer;
+    display           : -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow          : hidden;
+}
+
+.title-deadline {
+    color  : rgb(104, 104, 104);
+    display: none;
+}
+
+.warning {
+    color           : $white-color;
+    display         : inline-block;
+    background-color: $dangers-color;
+    margin          : 4px 10px;
+    padding         : 0 6px;
+    border-radius   : 4px;
+}
+
+.title_cpl {
+    text-decoration: line-through;
+    color          : rgb(104, 104, 104);
+}
+
+.deadline {
+    font-size  : 14px;
+    font-weight: normal;
+    color      : chocolate;
+}
+
+.icon {
+    --growth-from: 0.8;
+    --growth-to  : 1;
+    display      : none;
+    height       : 100%;
+    padding      : 0 13px;
+    cursor       : pointer;
+    animation    : growth linear 0.2s;
+    color        : $white-color;
+    font-size    : 1.2rem;
+
+    &.todoItem__icon-edit {
+        position        : absolute;
+        bottom          : 0px;
+        right           : 42px;
+        top             : 0;
+        background-color: $primary-color;
+
+        &:hover {
+            background-color: $primary-color-hover;
+        }
+    }
+
+    &.todoItem__icon-del {
+        position        : absolute;
+        top             : 0;
+        bottom          : 0;
+        right           : 0px;
+        background-color: $dangers-color;
+
+        &:hover {
+            background-color: $dangers-color-hover;
+        }
+    }
+}
+
+
+@keyframes showALl {
+    from {
+        transform: scaleY(var(--growth-from));
+    }
+
+    to {
+        transform: scaleY(var(--growth-to));
+    }
+}

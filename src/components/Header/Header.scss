@@ -1,0 +1,30 @@
+@import "../../assest/scss/variable.scss";
+
+.header {
+    display        : flex;
+    justify-content: space-between;
+    padding        : 20px;
+
+    &__title {
+        margin-top   : 0px;
+        margin-bottom: 0px;
+        font-size    : 30px;
+        color: $white-color;
+    }
+
+    .btn__add {
+        height   : 40px;
+        min-width: 40px;
+        width    : 100px;
+
+        .noti__icon {
+            margin-right: 4px;
+        }
+
+        .text-add {
+            visibility: visible;
+            display   : inline-block;
+        }
+
+    }
+}
